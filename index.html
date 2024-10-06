@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Creation of Äpuigz</title>
+    <style>
+        body {
+            background-color: black;
+            color: red; /* Changed text color to red */
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        h1 {
+            font-size: 3rem; /* Title size */
+            margin-top: 50px; 
+            margin-bottom: 60px; /* Increased space below title */
+        }
+        
+        p {
+            font-size: 3rem; /* Increased paragraph size */
+            text-align: center;
+            max-width: 100%; /* Allowing it to go full width */
+            padding: 0 20px; /* Adding padding for better readability */
+            margin-bottom: 80px; /* Increased space between the two paragraphs */
+        }
+
+        .small-text {
+            font-size: 1.8rem; /* Increased smaller text size */
+            text-align: center;
+            margin-top: 20px;
+            max-width: 100%; /* Allowing it to go full width */
+            padding: 0 20px; /* Adding padding for better readability */
+        }
+
+        #contactButton, #socialsButton {
+            position: absolute;
+            top: 20px;
+            padding: 10px 20px;
+            color: red; /* Button text color */
+            background-color: transparent;
+            border: 2px solid red; /* Red border */
+            border-radius: 0; /* Square corners */
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        #contactButton {
+            right: 20px;
+        }
+
+        #socialsButton {
+            right: 160px;
+        }
+
+        #emailPopup, #socialPopup {
+            display: none;
+            position: absolute;
+            top: 50px;
+            color: red; /* Popup text color */
+            padding: 10px;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        #emailPopup {
+            right: 20px;
+        }
+
+        #socialPopup {
+            right: 160px;
+        }
+
+        #emailPopup:hover, #socialPopup:hover {
+            text-decoration: underline;
+        }
+
+        .social-link {
+            display: block;
+            color: red; /* Social link text color */
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Äpuigz</h1>
+    <p>It all started when suddenly a person typed the word <strong>Äpuigz</strong> by accident, and then the person was confused. What did he just type? When he searched the word, nothing came up. Then he knew that he had just created a new word that does not exist. So that is how <strong>äpuigz</strong> was found and created.</p>
+
+    <p class="small-text">Äpuigz also has a brother called <strong>Äpiugz</strong>.</p>
+    
+    <button id="socialsButton">My socials</button>
+    <button id="contactButton">Contact me</button>
+
+    <div id="emailPopup">apuigz123@gmail.com</div>
+    <div id="socialPopup">
+        <a href="https://www.youtube.com/@Apuigz" target="_blank" class="social-link">YouTube</a>
+        <!-- Add more socials here as needed -->
+    </div>
+
+    <script>
+        const contactButton = document.getElementById("contactButton");
+        const socialsButton = document.getElementById("socialsButton");
+        const emailPopup = document.getElementById("emailPopup");
+        const socialPopup = document.getElementById("socialPopup");
+
+        contactButton.addEventListener("click", () => {
+            if (emailPopup.style.display === "none") {
+                emailPopup.style.display = "block";
+            } else {
+                emailPopup.style.display = "none";
+            }
+        });
+
+        socialsButton.addEventListener("click", () => {
+            if (socialPopup.style.display === "none") {
+                socialPopup.style.display = "block";
+            } else {
+                socialPopup.style.display = "none";
+            }
+        });
+
+        emailPopup.addEventListener("click", () => {
+            const email = emailPopup.textContent;
+            navigator.clipboard.writeText(email).then(() => {
+                alert("Email copied to clipboard: " + email);
+            }).catch(err => {
+                alert("Failed to copy email: " + err);
+            });
+        });
+    </script>
+    
+</body>
+</html>
